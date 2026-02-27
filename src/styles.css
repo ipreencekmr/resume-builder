@@ -1,0 +1,91 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+  background: #f7f8fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  background: #fff;
+  border: 1px solid #e2e4e8;
+  padding: 28px 24px;
+}
+
+.resume-header h1 {
+  margin: 0 0 4px;
+  font-size: 2rem;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.resume-header p {
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+button {
+  margin-top: 8px;
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2b2b2b;
+}
+
+.section h2 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid #d9dce1;
+  padding-bottom: 6px;
+  margin: 22px 0 10px;
+}
+
+.section p,
+.section li {
+  line-height: 1.45;
+  margin: 0 0 8px;
+}
+
+.section ul {
+  margin: 0 0 10px 20px;
+  padding: 0;
+}
+
+.item {
+  margin-bottom: 12px;
+}
+
+.item h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .container {
+    margin: 0;
+    border: 0;
+    padding: 18px 16px;
+  }
+
+  .header-top {
+    flex-direction: column;
+  }
+}

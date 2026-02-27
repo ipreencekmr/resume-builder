@@ -1,0 +1,125 @@
+{
+  "basics": {
+    "full_name": "Jordan Lee",
+    "job_title": "Senior Software Engineer",
+    "location": {
+      "city": "San Francisco",
+      "state": "CA",
+      "country": "USA"
+    },
+    "contacts": {
+      "email": "jordan.lee@email.com",
+      "phone": "+1-415-555-0123"
+    },
+    "connect": {
+      "linkedin": "https://www.linkedin.com/in/jordanlee",
+      "github": "https://github.com/jordanlee",
+      "portfolio": "https://jordanlee.dev"
+    }
+  },
+  "professional_summary": "Results-driven software engineer with 8+ years of experience building scalable applications, optimizing performance, and leading cross-functional teams.",
+  "skills": {
+    "title": "Core Skills",
+    "languages": {
+      "title": "Programming Languages",
+      "values": ["JavaScript", "TypeScript", "Python", "SQL"]
+    },
+    "libraries_and_frameworks": {
+      "title": "Libraries & Frameworks",
+      "values": ["React", "Node.js", "One App", "Express", "Bootstrap"]
+    },
+    "cloud_technology": {
+      "title": "Cloud Technologies",
+      "values": ["AWS", "GCP", "Hydra"]
+    },
+    "container_and_orchestration": {
+      "title": "Containers & Orchestration",
+      "values": ["Docker", "Kubernetes"]
+    },
+    "database": {
+      "title": "Databases",
+      "values": ["PostgreSQL", "MySQL"]
+    },
+    "tools": {
+      "title": "Tools & Platforms",
+      "values": ["Git", "Jenkins", "Rally", "VS Code", "IntelliJ"]
+    }
+  },
+  "work_experience": [
+    {
+      "company": "Acme Tech",
+      "location": "San Francisco, CA",
+      "job_title": "Senior Software Engineer",
+      "employment_type": "Full-time",
+      "start_date": "2021-06",
+      "end_date": "Present",
+      "responsibilities": [
+        "Led development of microservices handling 2M+ monthly requests.",
+        "Reduced API latency by 35% through query optimization and caching.",
+        "Mentored 4 junior engineers and improved team delivery velocity by 20%."
+      ],
+      "technologies": ["TypeScript", "Node.js", "AWS", "PostgreSQL", "Docker"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Texas at Austin",
+      "degree": "Bachelor of Science",
+      "field_of_study": "Computer Science",
+      "start_date": "2013-08",
+      "end_date": "2017-05",
+      "gpa": "3.7/4.0"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Solutions Architect – Associate",
+      "issuer": "Amazon Web Services",
+      "level": "Associate",
+      "date_earned": "2023-09",
+      "expiration_date": "2026-09",
+      "credential_id": "AWS-ABC12345"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Real-time Analytics Platform",
+      "role": "Lead Developer",
+      "description": "Designed event-driven analytics pipeline processing 10M events/day.",
+      "technologies": ["Kafka", "Node.js", "Redis", "AWS Lambda"],
+      "link": "https://github.com/jordanlee/realtime-analytics"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Employee of the Year",
+      "issuer": "Acme Tech",
+      "date": "2022-12"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Improving API Performance at Scale",
+      "publisher": "Medium",
+      "date": "2024-03",
+      "link": "https://medium.com/@jordanlee/api-performance"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native"
+    },
+    {
+      "language": "Spanish",
+      "proficiency": "Professional Working Proficiency"
+    }
+  ],
+  "keywords": [
+    "backend development",
+    "cloud architecture",
+    "microservices",
+    "performance optimization",
+    "team leadership"
+  ]
+}
