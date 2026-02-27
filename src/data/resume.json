@@ -1,23 +1,23 @@
 {
   "basics": {
-    "full_name": "Jordan Lee",
-    "job_title": "Senior Software Engineer",
+    "full_name": "Prince Kumar Sharma",
+    "job_title": "Sr. Software Engineer",
     "location": {
-      "city": "San Francisco",
-      "state": "CA",
-      "country": "USA"
+      "city": "Gurugram",
+      "state": "HR",
+      "country": "IN"
     },
     "contacts": {
-      "email": "jordan.lee@email.com",
-      "phone": "+1-415-555-0123"
+      "email": "ipreencekmr@gmail.com",
+      "phone": "+91-8744825823"
     },
     "connect": {
-      "linkedin": "https://www.linkedin.com/in/jordanlee",
-      "github": "https://github.com/jordanlee",
-      "portfolio": "https://jordanlee.dev"
+      "linkedin": "https://www.linkedin.com/in/ipreencekmr/",
+      "github": "https://github.com/ipreencekmr",
+      "portfolio": "https://sites.google.com/view/ipreencekmr/home"
     }
   },
-  "professional_summary": "Results-driven software engineer with 8+ years of experience building scalable applications, optimizing performance, and leading cross-functional teams.",
+  "professional_summary": "Results-driven software engineer with 14+ years of experience building scalable applications, optimizing performance, and leading cross-functional teams.",
   "skills": {
     "title": "Core Skills",
     "languages": {
@@ -26,7 +26,7 @@
     },
     "libraries_and_frameworks": {
       "title": "Libraries & Frameworks",
-      "values": ["React", "Node.js", "One App", "Express", "Bootstrap"]
+      "values": ["React", "Node.js", "One App", "Bootstrap"]
     },
     "cloud_technology": {
       "title": "Cloud Technologies",
@@ -42,82 +42,82 @@
     },
     "tools": {
       "title": "Tools & Platforms",
-      "values": ["Git", "Jenkins", "Rally", "VS Code", "IntelliJ"]
+      "values": ["Git", "Jenkins", "Rally", "OpenSearch Dashboard", "Aquila"]
     }
   },
   "work_experience": [
     {
-      "company": "Acme Tech",
-      "location": "San Francisco, CA",
-      "job_title": "Senior Software Engineer",
+      "company": "IBM India Pvt Ltd",
+      "location": "Gurugram, HR",
+      "job_title": "Sr. System Analyst",
       "employment_type": "Full-time",
-      "start_date": "2021-06",
+      "start_date": "2022-01",
       "end_date": "Present",
       "responsibilities": [
-        "Led development of microservices handling 2M+ monthly requests.",
-        "Reduced API latency by 35% through query optimization and caching.",
-        "Mentored 4 junior engineers and improved team delivery velocity by 20%."
+        "Tasked as the lead engineer for web accessibility audit & fix.",
+        "Developed micro front end web application using react, jest, RTL, Playwright, ELF, Component Library and various other useful libraries."
       ],
-      "technologies": ["TypeScript", "Node.js", "AWS", "PostgreSQL", "Docker"]
+      "technologies": ["One App", "Node.js", "React", "Hydra", "Docker"]
     }
   ],
   "education": [
     {
-      "institution": "University of Texas at Austin",
-      "degree": "Bachelor of Science",
-      "field_of_study": "Computer Science",
-      "start_date": "2013-08",
-      "end_date": "2017-05",
-      "gpa": "3.7/4.0"
+      "institution": "Liverpool John Moores University",
+      "degree": "Master of Science",
+      "field_of_study": "Artificial Intelligence & Machine Learning",
+      "start_date": "2021-08",
+      "end_date": "2023-08",
+      "gpa": "3.8/4.0"
     }
   ],
   "certifications": [
     {
-      "name": "AWS Certified Solutions Architect – Associate",
-      "issuer": "Amazon Web Services",
-      "level": "Associate",
-      "date_earned": "2023-09",
-      "expiration_date": "2026-09",
-      "credential_id": "AWS-ABC12345"
+      "name": "Certified Kubernetes Application Developer",
+      "issuer": "Linux Foundation",
+      "level": "Professional",
+      "date_earned": "2025-01",
+      "expiration_date": "2027-01",
+      "credential_id": "f3fcfc2b-a910-4c5d-a5fa-5f2cde624f15"
     }
   ],
   "projects": [
     {
-      "name": "Real-time Analytics Platform",
-      "role": "Lead Developer",
-      "description": "Designed event-driven analytics pipeline processing 10M events/day.",
-      "technologies": ["Kafka", "Node.js", "Redis", "AWS Lambda"],
-      "link": "https://github.com/jordanlee/realtime-analytics"
+      "name": "Transition Engine",
+      "role": "Full Stack AI Engineer",
+      "description": "Built RAG-based document and image search using Milvus vector database. Implemented Whisper-based audio transcription and semantic retrieval. Integrated with IBM Cloud to store unstructured data and PostgreSQL for artifact record management.",
+      "technologies": ["Python", "Podman", "Fast API", "Milvus"],
+      "link": ""
     }
   ],
   "awards": [
     {
-      "title": "Employee of the Year",
-      "issuer": "Acme Tech",
-      "date": "2022-12"
+      "title": "Growth Award",
+      "issuer": "IBM",
+      "date": "2024-08"
     }
   ],
   "publications": [
     {
-      "title": "Improving API Performance at Scale",
-      "publisher": "Medium",
-      "date": "2024-03",
-      "link": "https://medium.com/@jordanlee/api-performance"
+      "title": "Medicinal Plant Identification by Leaf Structure Using Ensemble Methods on Deep Learning Algorithms",
+      "publisher": "IJRAMT",
+      "date": "2024-09",
+      "link": "https://journals.ijramt.com/index.php/ijramt/article/view/2993"
     }
   ],
   "languages": [
     {
       "language": "English",
-      "proficiency": "Native"
+      "proficiency": "Professional Working Proficiency"
     },
     {
-      "language": "Spanish",
-      "proficiency": "Professional Working Proficiency"
+      "language": "Hindi",
+      "proficiency": "Native"
     }
   ],
   "keywords": [
+    "front end development",
     "backend development",
-    "cloud architecture",
+    "micro front end architecture",
     "microservices",
     "performance optimization",
     "team leadership"

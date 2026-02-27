@@ -1,4 +1,5 @@
-import resume from "./data/resume.json";
+import { useState } from "react";
+import sourceResume from "./data/resume.json";
 import { jsPDF } from "jspdf";
 
 const formatLocation = (location = {}) =>
@@ -39,16 +40,25 @@ const downloadPdf = (data) => {
 
   const addBullet = (text) => addTextBlock(`- ${text}`, { size: 10, gap: 8 });
 
-  const location = [data.basics?.location?.city, data.basics?.location?.state, data.basics?.location?.country]
+  const location = [
+    data.basics?.location?.city,
+    data.basics?.location?.state,
+    data.basics?.location?.country,
+  ]
     .filter(Boolean)
     .join(", ");
 
   addTextBlock(data.basics?.full_name, { size: 20, bold: true, gap: 8 });
-  addTextBlock(`${data.basics?.job_title || ""}${location ? ` | ${location}` : ""}`, { size: 11, gap: 6 });
-  addTextBlock(`${data.basics?.contacts?.email || ""}${data.basics?.contacts?.phone ? ` | ${data.basics.contacts.phone}` : ""}`, {
-    size: 10,
+  addTextBlock(`${data.basics?.job_title || ""}${location ? ` | ${location}` : ""}`, {
+    size: 11,
     gap: 6,
   });
+  addTextBlock(
+    `${data.basics?.contacts?.email || ""}${
+      data.basics?.contacts?.phone ? ` | ${data.basics.contacts.phone}` : ""
+    }`,
+    { size: 10, gap: 6 }
+  );
   addTextBlock(
     [data.basics?.connect?.linkedin, data.basics?.connect?.github, data.basics?.connect?.portfolio]
       .filter(Boolean)
@@ -131,7 +141,9 @@ const downloadPdf = (data) => {
 
   if (data.publications?.length) {
     addSection("PUBLICATIONS");
-    data.publications.forEach((pub) => addBullet(`${pub.title} - ${pub.publisher} (${pub.date})${pub.link ? ` | ${pub.link}` : ""}`));
+    data.publications.forEach((pub) =>
+      addBullet(`${pub.title} - ${pub.publisher} (${pub.date})${pub.link ? ` | ${pub.link}` : ""}`)
+    );
   }
 
   if (data.languages?.length) {
@@ -155,173 +167,226 @@ const Section = ({ title, children }) => (
 );
 
 function App() {
-  const skillGroups = Object.entries(resume.skills || {}).filter(
+  const [resumeData, setResumeData] = useState(sourceResume);
+  const [jsonText, setJsonText] = useState(JSON.stringify(sourceResume, null, 2));
+  const [editorState, setEditorState] = useState("Edit JSON and click Apply Changes");
+  const [editorError, setEditorError] = useState("");
+
+  const applyChanges = () => {
+    try {
+      const parsed = JSON.parse(jsonText);
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+        throw new Error("JSON root must be an object.");
+      }
+      setResumeData(parsed);
+      setJsonText(JSON.stringify(parsed, null, 2));
+      setEditorError("");
+      setEditorState("Changes applied successfully.");
+    } catch (error) {
+      setEditorError(error.message || "Invalid JSON format.");
+      setEditorState("Fix the JSON error and apply again.");
+    }
+  };
+
+  const resetToDefault = () => {
+    setResumeData(sourceResume);
+    setJsonText(JSON.stringify(sourceResume, null, 2));
+    setEditorError("");
+    setEditorState("Reset to default resume.json content.");
+  };
+
+  const skillGroups = Object.entries(resumeData.skills || {}).filter(
     ([key, value]) => key !== "title" && value?.values?.length
   );
 
   return (
-    <main className="container" aria-label="ATS-friendly resume">
-      <header className="resume-header">
-        <div className="header-top">
-          <div>
-            <h1>{resume.basics?.full_name}</h1>
-            <p>
-              {resume.basics?.job_title} | {formatLocation(resume.basics?.location)}
-            </p>
-            <p>
-              {resume.basics?.contacts?.email} | {resume.basics?.contacts?.phone}
-            </p>
-            <p>
-              {resume.basics?.connect?.linkedin} | {resume.basics?.connect?.github} |{" "}
-              {resume.basics?.connect?.portfolio}
-            </p>
-          </div>
-          <button type="button" onClick={() => downloadPdf(resume)}>
-            Download Resume PDF
+    <div className="page-layout">
+      <section className="editor-card" aria-label="Resume JSON editor">
+        <div className="editor-head">
+          <h2>Interactive JSON Editor</h2>
+          <p>Modify values and apply instantly to preview + PDF export.</p>
+        </div>
+        <textarea
+          value={jsonText}
+          onChange={(event) => setJsonText(event.target.value)}
+          spellCheck={false}
+          aria-label="Resume JSON"
+        />
+        <div className="editor-actions">
+          <button type="button" onClick={applyChanges}>
+            Apply Changes
+          </button>
+          <button type="button" className="button-secondary" onClick={resetToDefault}>
+            Reset
           </button>
         </div>
-      </header>
+        <p className="editor-state">{editorState}</p>
+        {editorError ? <p className="editor-error">Error: {editorError}</p> : null}
+      </section>
 
-      {resume.professional_summary && (
-        <Section title="Professional Summary">
-          <p>{resume.professional_summary}</p>
-        </Section>
-      )}
-
-      {skillGroups.length > 0 && (
-        <Section title={resume.skills?.title || "Core Skills"}>
-          {skillGroups.map(([key, value]) => (
-            <p key={key}>
-              <strong>{value.title}:</strong> {value.values.join(", ")}
-            </p>
-          ))}
-        </Section>
-      )}
-
-      {resume.work_experience?.length > 0 && (
-        <Section title="Work Experience">
-          {resume.work_experience.map((job) => (
-            <article key={`${job.company}-${job.start_date}`} className="item">
-              <h3>
-                {job.job_title} - {job.company}
-              </h3>
+      <main className="container" aria-label="ATS-friendly resume preview">
+        <header className="resume-header">
+          <div className="header-top">
+            <div>
+              <h1>{resumeData.basics?.full_name}</h1>
               <p>
-                {job.location} | {job.start_date} to {job.end_date} | {job.employment_type}
+                {resumeData.basics?.job_title} | {formatLocation(resumeData.basics?.location)}
               </p>
-              <ul>
-                {job.responsibilities?.map((duty) => (
-                  <li key={duty}>{duty}</li>
-                ))}
-              </ul>
-              {job.technologies?.length > 0 && (
-                <p>
-                  <strong>Technologies:</strong> {job.technologies.join(", ")}
-                </p>
-              )}
-            </article>
-          ))}
-        </Section>
-      )}
-
-      {resume.education?.length > 0 && (
-        <Section title="Education">
-          {resume.education.map((edu) => (
-            <article key={`${edu.institution}-${edu.start_date}`} className="item">
-              <h3>
-                {edu.degree} in {edu.field_of_study}
-              </h3>
-              <p>{edu.institution}</p>
               <p>
-                {edu.start_date} to {edu.end_date}
-                {edu.gpa ? ` | GPA: ${edu.gpa}` : ""}
+                {resumeData.basics?.contacts?.email} | {resumeData.basics?.contacts?.phone}
               </p>
-            </article>
-          ))}
-        </Section>
-      )}
-
-      {resume.certifications?.length > 0 && (
-        <Section title="Certifications">
-          <ul>
-            {resume.certifications.map((cert) => (
-              <li key={cert.credential_id || cert.name}>
-                <strong>{cert.name}</strong> - {cert.issuer} ({cert.level || "N/A"}) | Earned:{" "}
-                {cert.date_earned}
-                {cert.expiration_date ? ` | Expires: ${cert.expiration_date}` : ""}
-                {cert.credential_id ? ` | ID: ${cert.credential_id}` : ""}
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )}
-
-      {resume.projects?.length > 0 && (
-        <Section title="Projects">
-          {resume.projects.map((project) => (
-            <article key={project.name} className="item">
-              <h3>{project.name}</h3>
               <p>
-                <strong>Role:</strong> {project.role}
+                {resumeData.basics?.connect?.linkedin} | {resumeData.basics?.connect?.github} |{" "}
+                {resumeData.basics?.connect?.portfolio}
               </p>
-              <p>{project.description}</p>
-              {project.technologies?.length > 0 && (
+            </div>
+            <button type="button" onClick={() => downloadPdf(resumeData)}>
+              Download Resume PDF
+            </button>
+          </div>
+        </header>
+
+        {resumeData.professional_summary && (
+          <Section title="Professional Summary">
+            <p>{resumeData.professional_summary}</p>
+          </Section>
+        )}
+
+        {skillGroups.length > 0 && (
+          <Section title={resumeData.skills?.title || "Core Skills"}>
+            {skillGroups.map(([key, value]) => (
+              <p key={key}>
+                <strong>{value.title}:</strong> {value.values.join(", ")}
+              </p>
+            ))}
+          </Section>
+        )}
+
+        {resumeData.work_experience?.length > 0 && (
+          <Section title="Work Experience">
+            {resumeData.work_experience.map((job) => (
+              <article key={`${job.company}-${job.start_date}`} className="item">
+                <h3>
+                  {job.job_title} - {job.company}
+                </h3>
                 <p>
-                  <strong>Technologies:</strong> {project.technologies.join(", ")}
+                  {job.location} | {job.start_date} to {job.end_date} | {job.employment_type}
                 </p>
-              )}
-              {project.link && (
+                <ul>
+                  {job.responsibilities?.map((duty) => (
+                    <li key={duty}>{duty}</li>
+                  ))}
+                </ul>
+                {job.technologies?.length > 0 && (
+                  <p>
+                    <strong>Technologies:</strong> {job.technologies.join(", ")}
+                  </p>
+                )}
+              </article>
+            ))}
+          </Section>
+        )}
+
+        {resumeData.education?.length > 0 && (
+          <Section title="Education">
+            {resumeData.education.map((edu) => (
+              <article key={`${edu.institution}-${edu.start_date}`} className="item">
+                <h3>
+                  {edu.degree} in {edu.field_of_study}
+                </h3>
+                <p>{edu.institution}</p>
                 <p>
-                  <strong>Link:</strong> {project.link}
+                  {edu.start_date} to {edu.end_date}
+                  {edu.gpa ? ` | GPA: ${edu.gpa}` : ""}
                 </p>
-              )}
-            </article>
-          ))}
-        </Section>
-      )}
-
-      {resume.awards?.length > 0 && (
-        <Section title="Awards">
-          <ul>
-            {resume.awards.map((award) => (
-              <li key={`${award.title}-${award.date}`}>
-                <strong>{award.title}</strong> - {award.issuer} ({award.date})
-              </li>
+              </article>
             ))}
-          </ul>
-        </Section>
-      )}
+          </Section>
+        )}
 
-      {resume.publications?.length > 0 && (
-        <Section title="Publications">
-          <ul>
-            {resume.publications.map((pub) => (
-              <li key={`${pub.title}-${pub.date}`}>
-                <strong>{pub.title}</strong> - {pub.publisher} ({pub.date})
-                {pub.link ? ` | ${pub.link}` : ""}
-              </li>
+        {resumeData.certifications?.length > 0 && (
+          <Section title="Certifications">
+            <ul>
+              {resumeData.certifications.map((cert) => (
+                <li key={cert.credential_id || cert.name}>
+                  <strong>{cert.name}</strong> - {cert.issuer} ({cert.level || "N/A"}) | Earned:{" "}
+                  {cert.date_earned}
+                  {cert.expiration_date ? ` | Expires: ${cert.expiration_date}` : ""}
+                  {cert.credential_id ? ` | ID: ${cert.credential_id}` : ""}
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
+
+        {resumeData.projects?.length > 0 && (
+          <Section title="Projects">
+            {resumeData.projects.map((project) => (
+              <article key={project.name} className="item">
+                <h3>{project.name}</h3>
+                <p>
+                  <strong>Role:</strong> {project.role}
+                </p>
+                <p>{project.description}</p>
+                {project.technologies?.length > 0 && (
+                  <p>
+                    <strong>Technologies:</strong> {project.technologies.join(", ")}
+                  </p>
+                )}
+                {project.link && (
+                  <p>
+                    <strong>Link:</strong> {project.link}
+                  </p>
+                )}
+              </article>
             ))}
-          </ul>
-        </Section>
-      )}
+          </Section>
+        )}
 
-      {resume.languages?.length > 0 && (
-        <Section title="Languages">
-          <ul>
-            {resume.languages.map((language) => (
-              <li key={language.language}>
-                {language.language} - {language.proficiency}
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )}
+        {resumeData.awards?.length > 0 && (
+          <Section title="Awards">
+            <ul>
+              {resumeData.awards.map((award) => (
+                <li key={`${award.title}-${award.date}`}>
+                  <strong>{award.title}</strong> - {award.issuer} ({award.date})
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
 
-      {resume.keywords?.length > 0 && (
-        <Section title="Keywords">
-          <p>{resume.keywords.join(", ")}</p>
-        </Section>
-      )}
-    </main>
+        {resumeData.publications?.length > 0 && (
+          <Section title="Publications">
+            <ul>
+              {resumeData.publications.map((pub) => (
+                <li key={`${pub.title}-${pub.date}`}>
+                  <strong>{pub.title}</strong> - {pub.publisher} ({pub.date})
+                  {pub.link ? ` | ${pub.link}` : ""}
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
+
+        {resumeData.languages?.length > 0 && (
+          <Section title="Languages">
+            <ul>
+              {resumeData.languages.map((language) => (
+                <li key={language.language}>
+                  {language.language} - {language.proficiency}
+                </li>
+              ))}
+            </ul>
+          </Section>
+        )}
+
+        {resumeData.keywords?.length > 0 && (
+          <Section title="Keywords">
+            <p>{resumeData.keywords.join(", ")}</p>
+          </Section>
+        )}
+      </main>
+    </div>
   );
 }
 
