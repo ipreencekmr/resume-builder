@@ -23,7 +23,12 @@
     "title": "Core Skills",
     "languages": {
       "title": "Programming Languages",
-      "values": ["JavaScript", "TypeScript", "Python", "SQL"]
+      "values": [
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "SQL"
+      ]
     },
     "libraries_and_frameworks": {
       "title": "Libraries & Frameworks",
@@ -40,15 +45,25 @@
     },
     "cloud_technology": {
       "title": "Cloud Technologies",
-      "values": ["AWS", "GCP", "Hydra"]
+      "values": [
+        "AWS",
+        "GCP",
+        "Hydra"
+      ]
     },
     "container_and_orchestration": {
       "title": "Containers & Orchestration",
-      "values": ["Docker", "Kubernetes"]
+      "values": [
+        "Docker",
+        "Kubernetes"
+      ]
     },
     "database": {
       "title": "Databases",
-      "values": ["PostgreSQL", "MySQL"]
+      "values": [
+        "PostgreSQL",
+        "MySQL"
+      ]
     },
     "tools": {
       "title": "Tools & Platforms",
@@ -68,7 +83,7 @@
       "location": "Gurugram, HR",
       "job_title": "Sr. System Analyst",
       "employment_type": "Full-time",
-      "start_date": "2022-01",
+      "start_date": "Jan 2022",
       "end_date": "Present",
       "responsibilities": [
         "Tasked as the lead engineer for web accessibility audit & fix.",
@@ -90,8 +105,8 @@
       "location": "Gurugram, HR",
       "job_title": "Sr. Software Engineer",
       "employment_type": "Full-time",
-      "start_date": "2016-10",
-      "end_date": "2022-01",
+      "start_date": "Oct 2016",
+      "end_date": "Jan 2022",
       "responsibilities": [
         "Led and mentored a cross-functional engineering team, overseeing task distribution, sprint execution, and technical governance.",
         "Architected and developed scalable frontend and mobile application solutions aligned with business objectives.",
@@ -112,8 +127,8 @@
       "location": "Gurugram, HR",
       "job_title": "Sr. iOS Engineer",
       "employment_type": "Full-time",
-      "start_date": "2013-01",
-      "end_date": "2016-10",
+      "start_date": "Jan 2013",
+      "end_date": "Oct 2016",
       "responsibilities": [
         "Designed and optimized high-performance iOS applications, delivering seamless and intuitive user experiences.",
         "Led end-to-end App Store releases for flagship applications including All Dox and Munch Ado.",
@@ -133,8 +148,8 @@
       "location": "Hissar, HR",
       "job_title": "Associate IT",
       "employment_type": "Full-time",
-      "start_date": "2011-06",
-      "end_date": "2013-01",
+      "start_date": "Jun 2011",
+      "end_date": "Jan 2013",
       "responsibilities": [
         "Delivered multiple production-grade iOS applications, including Handy Suggestions, Symphony Space Live, and MiPath.",
         "Architected and developed scalable frontend and mobile application solutions aligned with business objectives.",
@@ -156,16 +171,16 @@
       "institution": "Liverpool John Moores University",
       "degree": "Master of Science",
       "field_of_study": "Artificial Intelligence & Machine Learning",
-      "start_date": "2021-07",
-      "end_date": "2023-06",
+      "start_date": "Jul 2021",
+      "end_date": "Jun 2023",
       "grade": "63%"
     },
     {
       "institution": "I.K Gujral Punjab Technical University",
       "degree": "Bachelor of Science",
       "field_of_study": "Information Technology",
-      "start_date": "2011-12",
-      "end_date": "2013-11",
+      "start_date": "Dec 2011",
+      "end_date": "Nov 2013",
       "grade": "73.14%"
     }
   ],
@@ -174,16 +189,16 @@
       "name": "Certified Kubernetes Application Developer",
       "issuer": "Linux Foundation",
       "level": "Professional",
-      "date_earned": "2025-01",
-      "expiration_date": "2027-01",
+      "date_earned": "Jan 2025",
+      "expiration_date": "Jan 2027",
       "credential_id": "f3fcfc2b-a910-4c5d-a5fa-5f2cde624f15"
     },
     {
       "name": "Professional Cloud Architect Certification",
       "issuer": "Google Cloud",
       "level": "Professional",
-      "date_earned": "2024-06",
-      "expiration_date": "2026-06",
+      "date_earned": "Jun 2024",
+      "expiration_date": "Jun 2026",
       "credential_id": "638f5eb7-ebc8-42a6-97ce-58567be8194c"
     }
   ],
@@ -206,7 +221,12 @@
       "name": "Document Finder",
       "role": "Full Stack AI Engineer",
       "description": "Engineered an AI-driven document retrieval system leveraging vector embeddings, delivering high-precision semantic and image-based search through scalable APIs, with Milvus as the high-performance vector database backbone.",
-      "technologies": ["Python", "Podman", "Fast API", "Milvus"],
+      "technologies": [
+        "Python",
+        "Podman",
+        "Fast API",
+        "Milvus"
+      ],
       "link": ""
     },
     {
@@ -258,14 +278,24 @@
       "name": "Secret Consultation",
       "role": "Full-Stack Engineer",
       "description": "Architected a secure full-stack platform with Node.js, Express, and MongoDB, delivering encrypted user identification for privacy-first anonymity, engineered scalable React-based front-end experiences, and implemented AWS-backed CI/CD pipelines to enable reliable, zero-downtime deployments.",
-      "technologies": ["Node.js", "Express", "Mongo", "React", "AWS"],
+      "technologies": [
+        "Node.js",
+        "Express",
+        "Mongo",
+        "React",
+        "AWS"
+      ],
       "link": "https://secretconsultation.com/"
     },
     {
       "name": "Front Office",
       "role": "Full-Stack Engineer",
       "description": "Led end-to-end delivery of an eight-month Front Office platform within a five-member cross-functional team, translating business requirements into scalable technical architecture. Built full-stack capabilities using Vanilla JavaScript, Bootstrap, Node.js, Express, and SQL Server, deployed via IIS, and executed under a structured Waterfall SDLC with Jira-based governance. Delivered mission-critical modules including scheduling, appointment orchestration, patient queue management, check-in/out workflows, lab test booking, pharmacy order processing, and integrated video consultations.",
-      "technologies": ["Vanilla JavaScript", "HTML", "Bootstrap"],
+      "technologies": [
+        "Vanilla JavaScript",
+        "HTML",
+        "Bootstrap"
+      ],
       "link": ""
     }
   ],
@@ -273,14 +303,14 @@
     {
       "title": "Growth Award",
       "issuer": "IBM",
-      "date": "2024-08"
+      "date": "Aug 2024"
     }
   ],
   "publications": [
     {
       "title": "Medicinal Plant Identification by Leaf Structure Using Ensemble Methods on Deep Learning Algorithms",
       "publisher": "IJRAMT",
-      "date": "2024-09",
+      "date": "Sep 2024",
       "link": "https://journals.ijramt.com/index.php/ijramt/article/view/2993"
     }
   ],
