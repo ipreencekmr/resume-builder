@@ -101,7 +101,7 @@ const downloadPdf = (data) => {
     data.education.forEach((edu) => {
       addTextBlock(`${edu.degree} in ${edu.field_of_study}`, { size: 11, bold: true, gap: 6 });
       addTextBlock(`${edu.institution}`, { size: 10, gap: 6 });
-      addTextBlock(`${edu.start_date} to ${edu.end_date}${edu.gpa ? ` | GPA: ${edu.gpa}` : ""}`, {
+      addTextBlock(`${edu.start_date} to ${edu.end_date}${edu.grade ? ` | Grade: ${edu.grade}` : ""}`, {
         size: 10,
         gap: 8,
       });
@@ -199,6 +199,8 @@ function App() {
     ([key, value]) => key !== "title" && value?.values?.length
   );
 
+  const connect = resumeData.basics?.connect;
+
   return (
     <div className="page-layout">
       <section className="editor-card" aria-label="Resume JSON editor">
@@ -236,8 +238,10 @@ function App() {
                 {resumeData.basics?.contacts?.email} | {resumeData.basics?.contacts?.phone}
               </p>
               <p>
-                {resumeData.basics?.connect?.linkedin} | {resumeData.basics?.connect?.github} |{" "}
-                {resumeData.basics?.connect?.portfolio}
+                {connect?.linkedin} | {connect?.github} | {" "}
+              </p>
+              <p>
+                {connect?.portfolio} | {connect?.badges} | {" "}
               </p>
             </div>
             <button type="button" onClick={() => downloadPdf(resumeData)}>
@@ -297,7 +301,7 @@ function App() {
                 <p>{edu.institution}</p>
                 <p>
                   {edu.start_date} to {edu.end_date}
-                  {edu.gpa ? ` | GPA: ${edu.gpa}` : ""}
+                  {edu.grade ? ` | Grade: ${edu.grade}` : ""}
                 </p>
               </article>
             ))}
