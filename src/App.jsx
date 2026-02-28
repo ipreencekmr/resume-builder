@@ -5,6 +5,19 @@ import { jsPDF } from "jspdf";
 const formatLocation = (location = {}) =>
   [location.city, location.state, location.country].filter(Boolean).join(", ");
 
+const normalizePdfText = (value) =>
+  String(value ?? "")
+    .replace(/[\u2018\u2019\u201A\u201B]/g, "'")
+    .replace(/[\u201C\u201D]/g, '"')
+    .replace(/[\u2013\u2014\u2212]/g, "-")
+    .replace(/[\u2192\u27A1\u2794\u279C]/g, "->")
+    .replace(/[\u2022]/g, "-")
+    .replace(/\u00A0/g, " ")
+    .replace(/[\u2000-\u200D\u2060\uFEFF]/g, "")
+    .split(/\n/)
+    .map((line) => line.replace(/\s+/g, " ").trim())
+    .join("\n");
+
 const downloadPdf = (data) => {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
   const pageWidth = doc.internal.pageSize.getWidth();
@@ -21,11 +34,13 @@ const downloadPdf = (data) => {
   };
 
   const addTextBlock = (text, opts = {}) => {
-    if (!text) return;
+    const normalized = normalizePdfText(text);
+    if (!normalized) return;
     const { size = 10, bold = false, gap = 14 } = opts;
     doc.setFont("helvetica", bold ? "bold" : "normal");
     doc.setFontSize(size);
-    const lines = doc.splitTextToSize(String(text), contentWidth);
+    if (typeof doc.setCharSpace === "function") doc.setCharSpace(0);
+    const lines = doc.splitTextToSize(normalized, contentWidth);
     ensureSpace(lines.length * (size + 2) + gap);
     doc.text(lines, margin, y);
     y += lines.length * (size + 2) + gap;

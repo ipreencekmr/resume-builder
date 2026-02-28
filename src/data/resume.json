@@ -262,7 +262,7 @@
       "link": "https://secretconsultation.com/"
     },
     {
-      "name": "Secret Consultation",
+      "name": "Front Office",
       "role": "Full-Stack Engineer",
       "description": "Led end-to-end delivery of an eight-month Front Office platform within a five-member cross-functional team, translating business requirements into scalable technical architecture. Built full-stack capabilities using Vanilla JavaScript, Bootstrap, Node.js, Express, and SQL Server, deployed via IIS, and executed under a structured Waterfall SDLC with Jira-based governance. Delivered mission-critical modules including scheduling, appointment orchestration, patient queue management, check-in/out workflows, lab test booking, pharmacy order processing, and integrated video consultations.",
       "technologies": ["Vanilla JavaScript", "HTML", "Bootstrap"],
