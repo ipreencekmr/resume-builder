@@ -14,7 +14,8 @@
     "connect": {
       "linkedin": "https://www.linkedin.com/in/ipreencekmr/",
       "github": "https://github.com/ipreencekmr",
-      "portfolio": "https://sites.google.com/view/ipreencekmr/home"
+      "portfolio": "https://sites.google.com/view/ipreencekmr/home",
+      "badges": "https://www.credly.com/users/ipreencekmr"
     }
   },
   "professional_summary": "Results-driven software engineer with 14+ years of experience building scalable applications, optimizing performance, and leading cross-functional teams.",
@@ -26,7 +27,16 @@
     },
     "libraries_and_frameworks": {
       "title": "Libraries & Frameworks",
-      "values": ["React", "Node.js", "One App", "Bootstrap"]
+      "values": [
+        "React",
+        "Node.js",
+        "One App",
+        "Bootstrap",
+        "Playwright",
+        "Jest",
+        "React Testing Library",
+        "Parrot Middleware"
+      ]
     },
     "cloud_technology": {
       "title": "Cloud Technologies",
@@ -42,7 +52,14 @@
     },
     "tools": {
       "title": "Tools & Platforms",
-      "values": ["Git", "Jenkins", "Rally", "OpenSearch Dashboard", "Aquila"]
+      "values": [
+        "Git",
+        "Jenkins",
+        "Rally",
+        "OpenSearch Dashboard",
+        "Aquila",
+        "Dynatrace"
+      ]
     }
   },
   "work_experience": [
@@ -57,7 +74,16 @@
         "Tasked as the lead engineer for web accessibility audit & fix.",
         "Developed micro front end web application using react, jest, RTL, Playwright, ELF, Component Library and various other useful libraries."
       ],
-      "technologies": ["One App", "Node.js", "React", "Hydra", "Docker"]
+      "technologies": [
+        "One App",
+        "One XP",
+        "Node.js",
+        "React",
+        "Redux",
+        "Thunk",
+        "Hydra",
+        "Docker"
+      ]
     }
   ],
   "education": [
@@ -65,9 +91,17 @@
       "institution": "Liverpool John Moores University",
       "degree": "Master of Science",
       "field_of_study": "Artificial Intelligence & Machine Learning",
-      "start_date": "2021-08",
-      "end_date": "2023-08",
-      "gpa": "3.8/4.0"
+      "start_date": "2021-07",
+      "end_date": "2023-06",
+      "grade": "63%"
+    },
+    {
+      "institution": "I.K Gujral Punjab Technical University",
+      "degree": "Bachelor of Science",
+      "field_of_study": "Information Technology",
+      "start_date": "2011-12",
+      "end_date": "2013-11",
+      "grade": "73.14%"
     }
   ],
   "certifications": [
@@ -78,14 +112,95 @@
       "date_earned": "2025-01",
       "expiration_date": "2027-01",
       "credential_id": "f3fcfc2b-a910-4c5d-a5fa-5f2cde624f15"
+    },
+    {
+      "name": "Professional Cloud Architect Certification",
+      "issuer": "Google Cloud",
+      "level": "Professional",
+      "date_earned": "2024-06",
+      "expiration_date": "2026-06",
+      "credential_id": "638f5eb7-ebc8-42a6-97ce-58567be8194c"
     }
   ],
   "projects": [
     {
       "name": "Transition Engine",
       "role": "Full Stack AI Engineer",
-      "description": "Built RAG-based document and image search using Milvus vector database. Implemented Whisper-based audio transcription and semantic retrieval. Integrated with IBM Cloud to store unstructured data and PostgreSQL for artifact record management.",
+      "description": "Modernized the frontend by migrating from Material UI to the Carbon Design System, engineered a Whisper-powered audio transcription pipeline, and implemented a robust user validation workflow with Alembic-driven database migrations. Orchestrated secure audio artifact management via IBM Cloud Storage, coordinated delivery through Monday, and deployed workloads on an OpenShift cluster. Leveraged PostgreSQL, Milvus vector indexing, and the Watson AI platform to ingest, store, and analyze multimodal project artifacts.",
+      "technologies": [
+        "Python",
+        "Podman",
+        "Fast API",
+        "Milvus",
+        "Postgres",
+        "Monday"
+      ],
+      "link": ""
+    },
+    {
+      "name": "Document Finder",
+      "role": "Full Stack AI Engineer",
+      "description": "Engineered an AI-driven document retrieval system leveraging vector embeddings, delivering high-precision semantic and image-based search through scalable APIs, with Milvus as the high-performance vector database backbone.",
       "technologies": ["Python", "Podman", "Fast API", "Milvus"],
+      "link": ""
+    },
+    {
+      "name": "Consumer Travel Platform",
+      "role": "Front-End Engineer",
+      "description": "Strengthened application security and accessibility by remediating SAST findings and compliance gaps, implemented automated semantic versioning and CI/CD pipelines via GitHub Actions, optimized web performance through Server-Side Rendering, led design system migration (v6→v7), and established robust UI quality gates using Playwright and Jest screen testing.",
+      "technologies": [
+        "One App",
+        "React",
+        "Github Actions",
+        "Aquila",
+        "Jest",
+        "RTL",
+        "Redux",
+        "OpenSearch Dashboard"
+      ],
+      "link": "https://www.americanexpress.com/en-us/travel/"
+    },
+    {
+      "name": "Persona API",
+      "role": "Back-End Engineer",
+      "description": "Led end-to-end DevSecOps transformation by migrating XLR pipelines to GitHub Actions, eliminating critical vulnerabilities (Client-Side Desync, SQL Injection, Web Cache Poisoning), and engineering a gated blue/green deployment model with multi-stage approvals and automated e1→e2 promotion. Established enterprise-grade CI/CD with Karate automation, JUnit/Jacoco coverage reporting, semantic-release package publishing, Slack-integrated deployment telemetry, secure secrets governance (GitHub Secrets + Vault via Helm), reusable artifact workflows with GitHub Pages hosting, and on-prem Hydra infrastructure orchestration.",
+      "technologies": [
+        "Spring Boot",
+        "WebFlux",
+        "Github Actions",
+        "Docker",
+        "Rally",
+        "Git"
+      ],
+      "link": ""
+    },
+    {
+      "name": "Select Homes + Retreats",
+      "role": "Front-End Engineer",
+      "description": "Engineered robust payment and trip summary modules, enhanced UX through targeted gap analysis and advanced search filters, improved Core Web Vitals (CLS) via skeleton loading, optimized performance with lazy loading and code splitting, modernized testing by migrating from Enzyme to React Testing Library, and implemented Reactlytics for advanced user analytics and behavioral tracking.",
+      "technologies": [
+        "One App",
+        "React",
+        "Redux",
+        "Reactlytics",
+        "One XP",
+        "Rally",
+        "Git"
+      ],
+      "link": "https://www.americanexpress.com/en-us/travel/vacation-rentals/home/?inav=en_us_menu_travel_book_travel_select_homes_retreats"
+    },
+    {
+      "name": "Secret Consultation",
+      "role": "Full-Stack Engineer",
+      "description": "Architected a secure full-stack platform with Node.js, Express, and MongoDB, delivering encrypted user identification for privacy-first anonymity, engineered scalable React-based front-end experiences, and implemented AWS-backed CI/CD pipelines to enable reliable, zero-downtime deployments.",
+      "technologies": ["Node.js", "Express", "Mongo", "React", "AWS"],
+      "link": "https://secretconsultation.com/"
+    },
+    {
+      "name": "Secret Consultation",
+      "role": "Full-Stack Engineer",
+      "description": "Led end-to-end delivery of an eight-month Front Office platform within a five-member cross-functional team, translating business requirements into scalable technical architecture. Built full-stack capabilities using Vanilla JavaScript, Bootstrap, Node.js, Express, and SQL Server, deployed via IIS, and executed under a structured Waterfall SDLC with Jira-based governance. Delivered mission-critical modules including scheduling, appointment orchestration, patient queue management, check-in/out workflows, lab test booking, pharmacy order processing, and integrated video consultations.",
+      "technologies": ["Vanilla JavaScript", "HTML", "Bootstrap"],
       "link": ""
     }
   ],
