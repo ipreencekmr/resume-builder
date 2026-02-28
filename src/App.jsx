@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import sourceResume from "./data/resume.json";
 import { jsPDF } from "jspdf";
 
@@ -232,16 +232,20 @@ function App() {
             <div>
               <h1>{resumeData.basics?.full_name}</h1>
               <p>
-                {resumeData.basics?.job_title} | {formatLocation(resumeData.basics?.location)}
+                {resumeData.basics?.job_title}
+                {resumeData.basics?.location && ` | ${formatLocation(resumeData.basics?.location)}`}
               </p>
               <p>
-                {resumeData.basics?.contacts?.email} | {resumeData.basics?.contacts?.phone}
+                {resumeData.basics?.contacts?.email}
+                {resumeData.basics?.contacts?.phone && ` | ${resumeData.basics?.contacts?.phone}`}
               </p>
               <p>
-                {connect?.linkedin} | {connect?.github} | {" "}
+                {connect?.linkedin && `${connect.linkedin}`}
+                {connect?.github && ` | ${connect.github}`}
               </p>
               <p>
-                {connect?.portfolio} | {connect?.badges} | {" "}
+                {connect?.badges && `${connect.badges}`}
+                {connect?.portfolio && ` | ${connect.portfolio}`}
               </p>
             </div>
             <button type="button" onClick={() => downloadPdf(resumeData)}>
@@ -268,8 +272,8 @@ function App() {
 
         {resumeData.work_experience?.length > 0 && (
           <Section title="Work Experience">
-            {resumeData.work_experience.map((job) => (
-              <article key={`${job.company}-${job.start_date}`} className="item">
+            {resumeData.work_experience.map((job, jobIndex) => (
+              <article key={`${job.company}-${job.start_date}-${jobIndex}`} className="item">
                 <h3>
                   {job.job_title} - {job.company}
                 </h3>
@@ -277,8 +281,8 @@ function App() {
                   {job.location} | {job.start_date} to {job.end_date} | {job.employment_type}
                 </p>
                 <ul>
-                  {job.responsibilities?.map((duty) => (
-                    <li key={duty}>{duty}</li>
+                  {job.responsibilities?.map((duty, dutyIndex) => (
+                    <li key={`${duty}-${dutyIndex}`}>{duty}</li>
                   ))}
                 </ul>
                 {job.technologies?.length > 0 && (
@@ -293,8 +297,8 @@ function App() {
 
         {resumeData.education?.length > 0 && (
           <Section title="Education">
-            {resumeData.education.map((edu) => (
-              <article key={`${edu.institution}-${edu.start_date}`} className="item">
+            {resumeData.education.map((edu, eduIndex) => (
+              <article key={`${edu.institution}-${edu.start_date}-${eduIndex}`} className="item">
                 <h3>
                   {edu.degree} in {edu.field_of_study}
                 </h3>
@@ -311,8 +315,8 @@ function App() {
         {resumeData.certifications?.length > 0 && (
           <Section title="Certifications">
             <ul>
-              {resumeData.certifications.map((cert) => (
-                <li key={cert.credential_id || cert.name}>
+              {resumeData.certifications.map((cert, certIndex) => (
+                <li key={cert.credential_id || `${cert.name}-${certIndex}`}>
                   <strong>{cert.name}</strong> - {cert.issuer} ({cert.level || "N/A"}) | Earned:{" "}
                   {cert.date_earned}
                   {cert.expiration_date ? ` | Expires: ${cert.expiration_date}` : ""}
@@ -325,8 +329,8 @@ function App() {
 
         {resumeData.projects?.length > 0 && (
           <Section title="Projects">
-            {resumeData.projects.map((project) => (
-              <article key={project.name} className="item">
+            {resumeData.projects.map((project, projectIndex) => (
+              <article key={`${project.name}-${projectIndex}`} className="item">
                 <h3>{project.name}</h3>
                 <p>
                   <strong>Role:</strong> {project.role}
@@ -350,8 +354,8 @@ function App() {
         {resumeData.awards?.length > 0 && (
           <Section title="Awards">
             <ul>
-              {resumeData.awards.map((award) => (
-                <li key={`${award.title}-${award.date}`}>
+              {resumeData.awards.map((award, awardIndex) => (
+                <li key={`${award.title}-${award.date}-${awardIndex}`}>
                   <strong>{award.title}</strong> - {award.issuer} ({award.date})
                 </li>
               ))}
@@ -362,8 +366,8 @@ function App() {
         {resumeData.publications?.length > 0 && (
           <Section title="Publications">
             <ul>
-              {resumeData.publications.map((pub) => (
-                <li key={`${pub.title}-${pub.date}`}>
+              {resumeData.publications.map((pub, pubIndex) => (
+                <li key={`${pub.title}-${pub.date}-${pubIndex}`}>
                   <strong>{pub.title}</strong> - {pub.publisher} ({pub.date})
                   {pub.link ? ` | ${pub.link}` : ""}
                 </li>
@@ -375,8 +379,8 @@ function App() {
         {resumeData.languages?.length > 0 && (
           <Section title="Languages">
             <ul>
-              {resumeData.languages.map((language) => (
-                <li key={language.language}>
+              {resumeData.languages.map((language, languageIndex) => (
+                <li key={`${language.language}-${languageIndex}`}>
                   {language.language} - {language.proficiency}
                 </li>
               ))}
