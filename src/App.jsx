@@ -232,16 +232,20 @@ function App() {
             <div>
               <h1>{resumeData.basics?.full_name}</h1>
               <p>
-                {resumeData.basics?.job_title} | {formatLocation(resumeData.basics?.location)}
+                {resumeData.basics?.job_title}
+                {resumeData.basics?.location && ` | ${formatLocation(resumeData.basics?.location)}`}
               </p>
               <p>
-                {resumeData.basics?.contacts?.email} | {resumeData.basics?.contacts?.phone}
+                {resumeData.basics?.contacts?.email}
+                {resumeData.basics?.contacts?.phone && ` | ${resumeData.basics?.contacts?.phone}`}
               </p>
               <p>
-                {connect?.linkedin} | {connect?.github} | {" "}
+                {connect?.linkedin && `${connect.linkedin}`}
+                {connect?.github && ` | ${connect.github}`}
               </p>
               <p>
-                {connect?.portfolio} | {connect?.badges} | {" "}
+                {connect?.badges && `${connect.badges}`}
+                {connect?.portfolio && ` | ${connect.portfolio}`}
               </p>
             </div>
             <button type="button" onClick={() => downloadPdf(resumeData)}>
