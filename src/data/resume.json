@@ -84,6 +84,71 @@
         "Hydra",
         "Docker"
       ]
+    },
+    {
+      "company": "mCURA Mobile Health Pvt Ltd",
+      "location": "Gurugram, HR",
+      "job_title": "Sr. Software Engineer",
+      "employment_type": "Full-time",
+      "start_date": "2016-10",
+      "end_date": "2022-01",
+      "responsibilities": [
+        "Led and mentored a cross-functional engineering team, overseeing task distribution, sprint execution, and technical governance.",
+        "Architected and developed scalable frontend and mobile application solutions aligned with business objectives.",
+        "Directed end-to-end project delivery, from requirement analysis to production deployment.",
+        "Designed and built independent in-house operational systems to optimize workflows and improve organizational efficiency."
+      ],
+      "technologies": [
+        "Javascript",
+        "React",
+        "Objective-C",
+        "Bootstrap",
+        "AWS",
+        "Node"
+      ]
+    },
+    {
+      "company": "Cyberlinks Technologies Pvt Ltd",
+      "location": "Gurugram, HR",
+      "job_title": "Sr. iOS Engineer",
+      "employment_type": "Full-time",
+      "start_date": "2013-01",
+      "end_date": "2016-10",
+      "responsibilities": [
+        "Designed and optimized high-performance iOS applications, delivering seamless and intuitive user experiences.",
+        "Led end-to-end App Store releases for flagship applications including All Dox and Munch Ado.",
+        "Implemented rigorous testing and quality assurance practices to ensure code reliability, scalability, and maintainability.",
+        "Collaborated with cross-functional teams to align product functionality with business and user requirements."
+      ],
+      "technologies": [
+        "Objective-C",
+        "RazorPay",
+        "Cocoa pods",
+        "AppCenter",
+        "xCode"
+      ]
+    },
+    {
+      "company": "Daffodil Software Pvt Ltd",
+      "location": "Hissar, HR",
+      "job_title": "Associate IT",
+      "employment_type": "Full-time",
+      "start_date": "2011-06",
+      "end_date": "2013-01",
+      "responsibilities": [
+        "Delivered multiple production-grade iOS applications, including Handy Suggestions, Symphony Space Live, and MiPath.",
+        "Architected and developed scalable frontend and mobile application solutions aligned with business objectives.",
+        "Provided real-time technical support and issue resolution, minimizing downtime and improving operational productivity.",
+        "Collaborated with stakeholders to translate functional requirements into stable, user-centric mobile experiences."
+      ],
+      "technologies": [
+        "Objective-C",
+        "Cocoa pods",
+        "AppCenter",
+        "xCode",
+        "Javascript",
+        "PhoneGap"
+      ]
     }
   ],
   "education": [
